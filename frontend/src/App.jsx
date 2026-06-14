@@ -30,7 +30,7 @@ function App() {
 
     try {
   const res = await axios.post(
-  "http://localhost:5000/api/resume/upload",
+  "https://ai-resume-analyzer-n2e3.onrender.com/api/resume/upload",
   formData
 );
 
