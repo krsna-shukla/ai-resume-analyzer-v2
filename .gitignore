@@ -5,8 +5,8 @@ frontend/node_modules/
 .env
 backend/.env
 
-uploads/
-backend/uploads/
+backend/uploads/*
+!backend/uploads/.gitkeep
 
 dist/
 build/
