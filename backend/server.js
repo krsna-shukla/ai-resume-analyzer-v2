@@ -13,6 +13,12 @@ app.use(express.json());
 
 app.use("/api/resume", resumeRoutes);
 
-app.listen(5000, () => {
-  console.log("Server Running");
+app.get("/", (req, res) => {
+  res.send("AI Resume Analyzer API is running 🚀");
+});
+
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => {
+  console.log(`Server Running on ${PORT}`);
 });
