@@ -30,6 +30,12 @@ An AI-powered Resume Analyzer that evaluates resumes using ATS-style analysis an
 * Multer
 * PDF-Parse
 
+ ## Live Demo
+
+Frontend: https://ai-resume-analyzer-v2-one.vercel.app
+
+Backend: https://ai-resume-analyzer-n2e3.onrender.com
+
 ### AI
 
 * Groq API
