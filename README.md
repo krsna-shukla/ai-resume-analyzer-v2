@@ -18,9 +18,9 @@ https://ai-resume-analyzer-n2e3.onrender.com
 
 ## 📸 Preview
 
-```md
+
 ![AI Resume Analyzer](screenshot.png)
-```
+
 
 ---
 
