@@ -1,19 +1,29 @@
 # 🚀 AI Resume Analyzer
 
-An AI-powered Resume Analyzer that evaluates resumes using ATS-style analysis and provides actionable feedback. Upload a PDF resume and get an ATS score, skill gap analysis, strengths, weaknesses, and personalized improvement suggestions.
+An AI-powered Resume Analyzer that evaluates resumes using ATS-style analysis and provides actionable feedback. Upload a PDF resume and get an ATS score, skill gap analysis, strengths, weaknesses, AI-generated suggestions, and a professional resume report.
 
 ## ✨ Features
 
 * 📄 PDF Resume Upload
-* 📊 ATS Score Analysis
-* 📝 Resume Summary
+* 🎯 ATS Score Analysis
+* 📊 Circular ATS Score Visualization
+* 📝 AI-Generated Resume Summary
 * ✅ Skills Detection
 * ❌ Missing Skills Detection
 * ⭐ Strengths Analysis
 * ⚠️ Weaknesses Analysis
-* 💡 AI-Powered Suggestions
-* 🎯 Circular ATS Score Visualization
-* 🤖 Powered by Groq LLM
+* 💡 Personalized AI Suggestions
+* 📥 PDF Report Download
+* 🌙 Dark / ☀️ Light Theme Toggle
+* 📱 Fully Responsive Design
+* 🎨 Modern Glassmorphism UI
+* 🤖 Powered by Groq LLM (Llama 3.3 70B)
+
+## 🌐 Live Demo
+
+Frontend: https://ai-resume-analyzer-v2-one.vercel.app
+
+Backend API: https://ai-resume-analyzer-n2e3.onrender.com
 
 ## 🛠️ Tech Stack
 
@@ -22,6 +32,8 @@ An AI-powered Resume Analyzer that evaluates resumes using ATS-style analysis an
 * React.js
 * Axios
 * React Circular Progressbar
+* jsPDF
+* Responsive CSS
 
 ### Backend
 
@@ -29,12 +41,6 @@ An AI-powered Resume Analyzer that evaluates resumes using ATS-style analysis an
 * Express.js
 * Multer
 * PDF-Parse
-
- ## Live Demo
-
-Frontend: https://ai-resume-analyzer-v2-one.vercel.app
-
-Backend: https://ai-resume-analyzer-n2e3.onrender.com
 
 ### AI
 
@@ -44,11 +50,18 @@ Backend: https://ai-resume-analyzer-n2e3.onrender.com
 ## 📂 Project Structure
 
 ai-resume-analyzer-v2
-
+│
 ├── frontend
-
+│ ├── src
+│ ├── public
+│ └── package.json
+│
 ├── backend
-
+│ ├── controllers
+│ ├── routes
+│ ├── config
+│ └── server.js
+│
 └── README.md
 
 ## ⚙️ Installation
@@ -63,11 +76,11 @@ cd backend
 
 npm install
 
-Create .env file:
+Create .env file
 
 GROQ_API_KEY=YOUR_API_KEY
 
-Run backend:
+Start Backend
 
 npm start
 
@@ -81,20 +94,20 @@ npm run dev
 
 ## 🚀 Future Improvements
 
-* Job Role Based ATS Analysis
-* Resume vs Job Description Matching
-* Resume Download Report
-* Interview Question Generation
-* AI Career Guidance
+* 🎯 Job Role Based ATS Analysis
+* 📌 Resume vs Job Description Matching
+* 🤖 AI Interview Question Generator
+* 📈 ATS Score Breakdown
+* 🎓 AI Career Guidance
+* 📊 Resume Analytics Dashboard
 
 ## 👨‍💻 Author
 
 Krishna Shukla
 
-GitHub: https://github.com/krsna-shukla
-
-LinkedIn: Add your LinkedIn profile here
+GitHub:
+https://github.com/krsna-shukla
 
 ## 📜 License
 
-This project is open-source and available under the MIT License.
+This project is licensed under the MIT License.
