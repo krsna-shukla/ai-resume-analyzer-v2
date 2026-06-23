@@ -216,39 +216,69 @@ function App() {
 
   // ─── PDF Download ────────────────────────────────────────
   const downloadPDF = async () => {
-    if (!reportRef.current) return;
-    setDownloading(true);
-    try {
-      const canvas = await html2canvas(reportRef.current, {
-        backgroundColor: THEMES[theme].bg,
-        scale: 2,
-        useCORS: true,
-      });
-      const imgData = canvas.toDataURL("image/png");
-      const pdf = new jsPDF("p", "mm", "a4");
-      const pdfWidth = pdf.internal.pageSize.getWidth();
-      const pageHeight = pdf.internal.pageSize.getHeight();
-      const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+  if (!reportRef.current) return;
 
-      let heightLeft = pdfHeight;
-      let position = 0;
+  setDownloading(true);
 
-      pdf.addImage(imgData, "PNG", 0, position, pdfWidth, pdfHeight);
+  try {
+    const canvas = await html2canvas(reportRef.current, {
+      scale: 2,
+      useCORS: true,
+      backgroundColor: THEMES[theme].bg,
+    });
+
+    const imgData = canvas.toDataURL("image/png");
+
+    const pdf = new jsPDF("p", "mm", "a4");
+
+    const pageWidth = 210;
+    const pageHeight = 297;
+
+    const imgWidth = pageWidth;
+    const imgHeight =
+      (canvas.height * imgWidth) / canvas.width;
+
+    let heightLeft = imgHeight;
+    let position = 0;
+
+    pdf.addImage(
+      imgData,
+      "PNG",
+      0,
+      position,
+      imgWidth,
+      imgHeight
+    );
+
+    heightLeft -= pageHeight;
+
+    while (heightLeft > 0) {
+      position = heightLeft - imgHeight;
+
+      pdf.addPage();
+
+      pdf.addImage(
+        imgData,
+        "PNG",
+        0,
+        position,
+        imgWidth,
+        imgHeight
+      );
+
       heightLeft -= pageHeight;
-      while (heightLeft > 0) {
-        position -= pageHeight;
-        pdf.addPage();
-        pdf.addImage(imgData, "PNG", 0, position, pdfWidth, pdfHeight);
-        heightLeft -= pageHeight;
-      }
-      pdf.save(`resume-analysis-${Date.now()}.pdf`);
-    } catch (e) {
-      console.error("PDF generation failed:", e);
-      setError("Could not generate PDF. Try again.");
-    } finally {
-      setDownloading(false);
     }
-  };
+
+    pdf.save(
+      `resume-analysis-${Date.now()}.pdf`
+    );
+
+  } catch (err) {
+    console.error(err);
+  } finally {
+    setDownloading(false);
+  }
+};
 
   // ─── UI Helpers ─────────────────────────────────────────
   const Card = ({ children, className = "", delay = 0, style }) => (
